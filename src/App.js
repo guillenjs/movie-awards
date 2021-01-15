@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+import Search from './components/Search.js'
+import Results from './components/Results.js'
+import Nominations from './components/Nominations.js'
+
+const StyledDiv = styled.div
+  `
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  border: solid 1px black;
+  `
+
+const StyledHeader = styled.header
+  `
+  width: 100%
+  
+  `
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <StyledDiv>
+    <StyledHeader>The Shoppies</StyledHeader>
+    <Search></Search>
+    <Results></Results>
+    <Nominations></Nominations>
+  </StyledDiv>
   );
 }
 
