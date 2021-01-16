@@ -4,10 +4,11 @@ import styled from 'styled-components'
 const StyledDiv = styled.div
     `
     background-color: white;
-    width: 40%;
+    width: 45%;
     height: 300px;
     overflow: scroll;
     border: solid 1px pink;
+    margin-right: 10px;
     `
 
 const Results = () => {

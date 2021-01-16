@@ -9,24 +9,39 @@ const StyledDiv = styled.div
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  border: solid 1px black;
+  margin-top: 5%;
+  `
 
+  const StyledDivTwo = styled.div
+  `
+  width:90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   border: solid 1px black;
   `
 
 const StyledHeader = styled.header
   `
-  width: 100%
-  
+  width: 100%;
+  padding-right:100px;
+  margin-left:4%;
   `
 
 function App() {
   return (
+ 
   <StyledDiv>
+    <StyledDivTwo>
     <StyledHeader>The Shoppies</StyledHeader>
-    <Search></Search>
-    <Results></Results>
-    <Nominations></Nominations>
+      <Search></Search>
+      <Results></Results>
+      <Nominations></Nominations>
+    </StyledDivTwo>
   </StyledDiv>
+
   );
 }
 

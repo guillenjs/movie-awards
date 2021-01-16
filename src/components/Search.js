@@ -4,8 +4,9 @@ import styled from 'styled-components'
 const StyledDiv = styled.div
     `
     background-color: white;
-    width: 80%;
+    width: 92%;
     border: solid 1px pink;
+    margin: 8.5px;
     `
 const StyledInput = styled.input
     `

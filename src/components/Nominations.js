@@ -4,9 +4,10 @@ import styled from 'styled-components'
 const StyledDiv = styled.div
     `
     background-color: white;
-    width: 40%; 
+    width: 45%; 
     height: 300px;
     border: solid 1px pink;
+    margin-left:10px
     `
 
 const Nomination = () => {
