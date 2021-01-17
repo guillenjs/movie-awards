@@ -68,6 +68,12 @@ function App() {
     setNominations([...nominations, nom])
   }
 
+  const removeNomination = (movie) => {
+      console.log(movie)
+      const newArr = nominations.filter( n => n.imdbID !== movie.imdbID)
+      setNominations(newArr)
+  }
+
   console.log(searchItems)
   console.log(nominations)
 
@@ -84,7 +90,7 @@ function App() {
         handleNominations = {handleNominations}
         nominations = {nominations}
       />
-      <Nominations nominations = {nominations}/>
+      <Nominations nominations = {nominations} removeNomination = {removeNomination}/>
     </StyledDivTwo>
   </StyledDiv>
 

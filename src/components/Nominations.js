@@ -22,7 +22,7 @@ console.log(props.nominations.length)
     const renderNominations = () => {
         if (props.nominations.length)
         {
-            return props.nominations.map(movie => <NominationItem key={movie.imdbID} movie = {movie}/>)
+            return props.nominations.map(movie => <NominationItem key={movie.imdbID} movie = {movie} removeNomination = {props.removeNomination}/>)
         }
         else
         {
