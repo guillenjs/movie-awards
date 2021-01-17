@@ -1,8 +1,13 @@
-import React from 'react'
+import { render } from '@testing-library/react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
+import css from 'styled-components'
+
+
 
 const StyledCont = styled.div
     `
+   
     width:80%;
     height: 50px;
     border: solid 1px grey;
@@ -14,9 +19,6 @@ const StyledCont = styled.div
     0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     margin: 5px; 
-    button:hover {
-        background-color: green;
-    }
     `
 const Button = styled.button
  `
@@ -30,12 +32,38 @@ const Button = styled.button
     transition: 0.5s ease-in-out;
  `
 const ResultItem = (props) => {
+    const [active, setActive] = useState(null)
     const {Title, Year } = props.movie
+   
+    const checkNomination = () => {
+        console.log(props.nominations.includes(props.movie))
+       return props.nominations.forEach(movie => 
+           { if (movie.imdbID === props.movie.imdbID){
+                return setActive(true)
+            }
+            else
+            {
+                return setActive(false)
+            }
+        }
+            )
+    }
+
+    useEffect(() => {
+        checkNomination()
+    },[active]
+    )
+    const activated = () => {
+        setActive(true)
+        props.handleNominations(props.movie)
+    }
+
+
     return(
         <StyledCont>
             <div>{Title}</div>
             <div>Released: {Year}</div>
-            <Button onClick={()=>props.handleNominations(props.movie)}><i class="fa fa-plus"></i></Button>
+            <Button  disabled={active}  onClick={activated} ><i class="fa fa-plus"></i></Button>
         </StyledCont>
     )
 }

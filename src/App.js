@@ -82,6 +82,7 @@ function App() {
         searchItems = {searchItems} 
         loading = {loading}
         handleNominations = {handleNominations}
+        nominations = {nominations}
       />
       <Nominations nominations = {nominations}/>
     </StyledDivTwo>

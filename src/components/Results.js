@@ -38,7 +38,12 @@ const Results = (props) => {
     const renderItems = () => {
         if(props.searchItems.Search)
             {    
-            return props.searchItems.Search.map(movie => <ResultItem key={movie.imdbID} movie={movie}  handleNominations = {props.handleNominations}/>)
+            return props.searchItems.Search.map(movie => 
+            <ResultItem
+                 key={movie.imdbID} movie={movie}  
+                 handleNominations = {props.handleNominations}
+                 nominations = {props.nominations}
+            />)
             }
         else{ return 'Nothing Found'}
     }
