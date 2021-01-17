@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
 const StyledDiv = styled.div
@@ -15,11 +15,18 @@ const StyledInput = styled.input
     height: 30px;
     `
 
-const Search = () => {
+const Search = (props) => {
+    const [search, setSearch] = useState('')
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value)
+        props.search(search)
+    } 
+
     return (
         <StyledDiv>
             <div>Movie Title</div>
-            <StyledInput placeholder='Search'></StyledInput>
+            <StyledInput placeholder='Search' value={search} onChange={handleSearch}></StyledInput>
         </StyledDiv>
     )
 }

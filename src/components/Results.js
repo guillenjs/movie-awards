@@ -1,5 +1,7 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
+import ResultItem from './ResultItem.js'
+
 
 const StyledDiv = styled.div
     `
@@ -9,18 +11,25 @@ const StyledDiv = styled.div
     overflow: scroll;
     border: solid 1px pink;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
     `
 
-const Results = () => {
+const Results = (props) => {
+    
+    const renderItems = () => {
+        if(props.searchItems.Search)
+            {    
+            return props.searchItems.Search.map(movie => <ResultItem key={movie.imdbID} movie={movie}/>)
+            }
+        else{ return 'nothing yet'}
+    }
+
     return (
         <StyledDiv>
-            <div>result</div>
-            <div>result</div>
-            <div>result</div>
-            <div>result</div>
-            <div>result</div>
-         
-          
+            {renderItems()}
         </StyledDiv>
     )
 }

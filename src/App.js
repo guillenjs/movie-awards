@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import Search from './components/Search.js'
 import Results from './components/Results.js'
@@ -9,7 +10,6 @@ const StyledDiv = styled.div
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  border: solid 1px black;
   margin-top: 5%;
   `
 
@@ -20,7 +20,7 @@ const StyledDiv = styled.div
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  border: solid 1px black;
+ 
   `
 
 const StyledHeader = styled.header
@@ -30,14 +30,42 @@ const StyledHeader = styled.header
   margin-left:4%;
   `
 
+
+
 function App() {
+
+  const [searchTerm, setSearchaTerm] = useState('')
+  const [searchItems, setItems] = useState([])
+
+  // const fetchItems = () => {
+  //   if(searchTerm.length > 1){
+  //     fetch(``)
+  //     .then(res=> res.json())
+  //     .then(data => setItems(data))
+  //   }
+  //   else
+  //   {
+  //     setItems([])
+  //   }
+  // }
+
+
+  const search = (search) => {
+    setSearchaTerm(search)
+    fetchItems(search)
+  }
+
+  console.log(searchItems)
+
+
+
   return (
  
   <StyledDiv>
     <StyledDivTwo>
     <StyledHeader>The Shoppies</StyledHeader>
-      <Search></Search>
-      <Results></Results>
+      <Search search = {search}></Search>
+      <Results searchItems = {searchItems} ></Results>
       <Nominations></Nominations>
     </StyledDivTwo>
   </StyledDiv>
