@@ -35,19 +35,27 @@ const StyledHeader = styled.header
 function App() {
 
   const [searchTerm, setSearchaTerm] = useState('')
+  const [nominations, setNominations] = useState([])
   const [searchItems, setItems] = useState([])
+  const [loading, setLoading] = useState(false)
+  const  API_KEY = process.env.REACT_APP_MOVIE_AWARDS_API_KEY
 
-  // const fetchItems = () => {
-  //   if(searchTerm.length > 1){
-  //     fetch(``)
-  //     .then(res=> res.json())
-  //     .then(data => setItems(data))
-  //   }
-  //   else
-  //   {
-  //     setItems([])
-  //   }
-  // }
+  const fetchItems = () => {
+    if(searchTerm.length > 1){
+      setLoading(true)
+      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=279bb362`)
+      .then(res=> res.json())
+      .then(data => {
+        setItems(data)
+        setLoading(false)
+      })
+    }
+    else
+    {
+      setLoading(true)
+      setItems([])
+    }
+  }
 
 
   const search = (search) => {
@@ -55,8 +63,13 @@ function App() {
     fetchItems(search)
   }
 
-  console.log(searchItems)
+  const handleNominations = (nom) => {
+    console.log(nom)
+    setNominations([...nominations, nom])
+  }
 
+  console.log(searchItems)
+  console.log(nominations)
 
 
   return (
@@ -65,8 +78,12 @@ function App() {
     <StyledDivTwo>
     <StyledHeader>The Shoppies</StyledHeader>
       <Search search = {search}></Search>
-      <Results searchItems = {searchItems} ></Results>
-      <Nominations></Nominations>
+      <Results 
+        searchItems = {searchItems} 
+        loading = {loading}
+        handleNominations = {handleNominations}
+      />
+      <Nominations nominations = {nominations}/>
     </StyledDivTwo>
   </StyledDiv>
 

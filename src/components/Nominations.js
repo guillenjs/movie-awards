@@ -15,14 +15,25 @@ const StyledDiv = styled.div
     flex-direction: column;
     `
 
-const Nomination = () => {
+
+
+const Nomination = (props) => {
+console.log(props.nominations.length)
+    const renderNominations = () => {
+        if (props.nominations.length)
+        {
+            return props.nominations.map(movie => <NominationItem key={movie.imdbID} movie = {movie}/>)
+        }
+        else
+        {
+            return <div>No nomiations yet</div>
+        }
+        
+    }
+
     return (
         <StyledDiv>
-            <NominationItem />
-            <NominationItem />
-            <NominationItem />
-            <NominationItem />
-            <NominationItem />
+            {renderNominations()}
         </StyledDiv>
     )
 }

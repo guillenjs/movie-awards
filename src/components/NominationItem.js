@@ -18,10 +18,11 @@ const StyledDiv = styled.div
         background-color: green;
     `
 
-const NominationItem = () => {
+const NominationItem = (props) => {
+    const{Title} = props.movie
     return(
         <StyledDiv>
-            Nomination 
+            {Title}
             <button>remove</button>
         </StyledDiv>
     )
