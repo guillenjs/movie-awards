@@ -20,7 +20,6 @@ const StyledDiv = styled.div
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
- 
   `
 
 const StyledHeader = styled.header
@@ -51,7 +50,7 @@ function App() {
   const fetchItems = () => {
     if(searchTerm.length > 1){
       setLoading(true)
-      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`)
+      fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`)
       .then(res=> res.json())
       .then(data => {
         setItems(data)
@@ -79,13 +78,10 @@ function App() {
   }
 
   const removeNomination = (movie) => {
-      console.log(movie)
       const newArr = nominations.filter( n => n.imdbID !== movie.imdbID)
       setNominations(newArr)
   }
 
-  console.log(searchItems)
-  console.log(nominations)
 
 
   return (

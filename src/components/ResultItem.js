@@ -43,7 +43,6 @@ const ResultItem = (props) => {
     const {Title, Year } = props.movie
    
     const checkNomination = () => {
-        console.log(props.nominations.includes(props.movie))
        return props.nominations.forEach(movie => 
            { if (movie.imdbID === props.movie.imdbID){
                 return setActive(true)

@@ -55,7 +55,6 @@ const StyledDiv = styled.div
 const NominationItem = (props) => {
     const{Title} = props.movie
 
-    
     return(
         <StyledDivTwo>
             <StyledDiv>

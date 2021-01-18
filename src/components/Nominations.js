@@ -59,7 +59,6 @@ const StyledDiv = styled.div
 
 
 const Nomination = (props) => {
-console.log(props.nominations.length)
     const renderNominations = () => {
         if (props.nominations.length)
         {
