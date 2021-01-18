@@ -7,10 +7,10 @@ import css from 'styled-components'
 
 const StyledCont = styled.div
     `
-   
+    border-radius: 10px;
     width:80%;
     height: 50px;
-    border: solid 1px grey;
+    border: solid 1px #BB86FC;
     border-radius;
     display: flex;
     justify-content: space-between;
@@ -20,6 +20,13 @@ const StyledCont = styled.div
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     margin: 5px; 
     `
+    const StyledContTwo = styled.div  
+    `
+        display: flex;
+        alignt-items: center;
+        justify-content: center;
+        flex-direction: column;
+    ` 
 const Button = styled.button
  `
     border:none;
@@ -61,8 +68,10 @@ const ResultItem = (props) => {
 
     return(
         <StyledCont>
-            <div>{Title}</div>
+            <StyledContTwo >
+            <div><b>{Title}</b></div>
             <div>Released: {Year}</div>
+            </StyledContTwo>
             <Button  disabled={active}  onClick={activated} ><i class="fa fa-plus"></i></Button>
         </StyledCont>
     )

@@ -28,6 +28,14 @@ const StyledHeader = styled.header
   width: 100%;
   padding-right:100px;
   margin-left:4%;
+  color: #F3E5F5;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 5px 5px black;
+  font-weight: 600;
+  i {
+    color: gold;
+  }
   `
 
 
@@ -43,7 +51,7 @@ function App() {
   const fetchItems = () => {
     if(searchTerm.length > 1){
       setLoading(true)
-      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=279bb362`)
+      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`)
       .then(res=> res.json())
       .then(data => {
         setItems(data)
@@ -64,8 +72,10 @@ function App() {
   }
 
   const handleNominations = (nom) => {
-    console.log(nom)
-    setNominations([...nominations, nom])
+
+    if(nominations.length < 5){
+      setNominations([...nominations, nom])
+    }
   }
 
   const removeNomination = (movie) => {
@@ -82,7 +92,7 @@ function App() {
  
   <StyledDiv>
     <StyledDivTwo>
-    <StyledHeader>The Shoppies</StyledHeader>
+    <StyledHeader>T H E <div><i class="fa fa-trophy"></i></div>S H O P P I E S</StyledHeader>
       <Search search = {search}></Search>
       <Results 
         searchItems = {searchItems} 
